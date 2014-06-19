@@ -26,7 +26,7 @@ for k=1:utterance_no
             scores(m)=viterbi_hmm_LR_skips_1gau( c, mean_vec_i_m(:,:,m), var_vec_i_m(:,:,m), a_i_j_m(:,:,m) );
         end
         [temp, m_max]=max(scores);
-        %fprintf('word= %d   recog=%d \n',list{k,1},m_max);  
+        fprintf('word= %d   recog=%d \n',list{k,1},m_max);  
         if (m_max==list{k,1}) 
             correct_count=correct_count+1;
         else 
@@ -40,4 +40,4 @@ if nargout > 1
     varargout(1)= { total_count };
 end
 
-fprintf('recognition rate =%5.2f  error count =%d   correct count =%d  total_count=%d \n',recog_rate*100,error_count, correct_count, total_count);
+fprintf('recognition rate =%5.2f  error count =%d   correct count =%d  total_count=%d \n',recog_rate*100,error_count, correct_count, total_count)
